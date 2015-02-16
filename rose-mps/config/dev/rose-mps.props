@@ -1,0 +1,4 @@
+#mps地址
+mps.server.url=https://pms.beyondh.com:7997/Service/Order/HotelService.svc
+mps.server.username=433AC54A63D80AD1 #sec
+mps.server.password=A6F3DBA2982DFBD0 #sec

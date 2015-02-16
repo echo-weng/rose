@@ -1,0 +1,9 @@
+rose-common:
+	业务方面的公共信息
+rose-base:
+	所有工具
+rose-elong:
+	艺龙对接的项目
+rose-server:
+    服务
+	

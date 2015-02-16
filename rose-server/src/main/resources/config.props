@@ -1,0 +1,5 @@
+jdbc.jdbcUrl=jdbc:mysql:///rose_db?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true&useServerPrepStmts=true&useCursorFetch=true
+jdbc.minPoolSize=10
+jdbc.maxPoolSize=50
+jdbc.user=root
+jdbc.password=101714
