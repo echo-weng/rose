@@ -1,18 +1,20 @@
 package com.rose.domain;
 
+import java.util.List;
+
 /**
  * RateUpdate 包装类
  *
  * @author echo
  */
 public class RateUpdateWrap {
-	private RateUpdate rateUpdate;
-
-	private Contract contract;
 	
-	public RateUpdateWrap(RateUpdate rateUpdate, Contract contract){
+	private RateUpdate rateUpdate;
+	private List<Contract> contracts;
+
+	public RateUpdateWrap(RateUpdate rateUpdate, List<Contract> contracts) {
 		this.rateUpdate = rateUpdate;
-		this.contract = contract;
+		this.contracts = contracts;
 	}
 
 	public RateUpdate getRateUpdate() {
@@ -23,12 +25,12 @@ public class RateUpdateWrap {
 		this.rateUpdate = rateUpdate;
 	}
 
-	public Contract getContract() {
-		return contract;
+	public List<Contract> getContracts() {
+		return contracts;
 	}
 
-	public void setContract(Contract contract) {
-		this.contract = contract;
+	public void setContracts(List<Contract> contracts) {
+		this.contracts = contracts;
 	}
-	
+
 }

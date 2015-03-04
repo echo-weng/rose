@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns="http://tempuri.org/"
+	xmlns:com="http://schemas.datacontract.org/2004/07/com.eLong.Hotel.SouthBoundService.Model"
+	xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<Login>
+			<loginRequest>
+				<com:RequestHead>
+					<com:Language>CN</com:Language>
+					<com:Version>1</com:Version>
+				</com:RequestHead>
+				<UserName>elongtest</UserName>
+				<Password>elongtest</Password>
+			</loginRequest>
+		</Login>
+	</soap:Body>
+</soap:Envelope>

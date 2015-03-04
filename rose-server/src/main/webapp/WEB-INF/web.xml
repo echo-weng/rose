@@ -8,10 +8,29 @@
 	<!-- 指定spring配置文件位置 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring-config/application-core.xml</param-value>
+		<param-value>classpath*:spring-config/rose-common-config.xml</param-value>
 	</context-param>
 	<!-- 定义SPRING监听器，加载spring -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+	<servlet>
+		<servlet-name>MpsServiceServlet</servlet-name>
+		<servlet-class>com.rose.mps.web.MpsServiceServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ElongServiceServlet</servlet-name>
+		<servlet-class>com.rose.elong.web.ElongServiceServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>MpsServiceServlet</servlet-name>
+		<url-pattern>/rose/mps.svc</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ElongServiceServlet</servlet-name>
+		<url-pattern>/rose/elong</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

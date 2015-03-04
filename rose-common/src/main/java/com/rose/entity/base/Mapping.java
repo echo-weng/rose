@@ -20,8 +20,8 @@ public abstract class Mapping extends DomainObject {
 	/**
 	 * 合作方code
 	 */
-	@Column(name = "cooperator_code", nullable = false)
-	protected String cooperatorCode;
+	@Column(name = "ota_cooperator_code", nullable = false)
+	protected String otaCooperatorCode;
 
 	public String getCode() {
 		return code;
@@ -31,12 +31,12 @@ public abstract class Mapping extends DomainObject {
 		this.code = code;
 	}
 
-	public String getCooperatorCode() {
-		return cooperatorCode;
+	public String getOtaCooperatorCode() {
+		return otaCooperatorCode;
 	}
 
-	public void setCooperatorCode(String cooperatorCode) {
-		this.cooperatorCode = cooperatorCode;
+	public void setOtaCooperatorCode(String otaCooperatorCode) {
+		this.otaCooperatorCode = otaCooperatorCode;
 	}
 
 }

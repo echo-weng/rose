@@ -2,6 +2,8 @@ package com.rose.domain;
 
 import java.util.List;
 
+import com.rose.utils.CollectionUtil;
+
 /**
  * 价格
  *
@@ -20,6 +22,14 @@ public class OccupancyRate extends CloneableValueObject {
 		OccupancyRate clone = (OccupancyRate) super.clone();
 		clone.setRates(Cloneables.clone(rates));
 		return clone;
+	}
+	
+	public Rate getCommonRate(){
+		if(CollectionUtil.isEmpty(rates)){
+			return null;
+		}
+		
+		return rates.get(0);
 	}
 
 	public String getCurrencyCode() {

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping xmlns="http://castor.exolab.org/">
+	<class name="com.rose.mps.update.domain.RateUpdateRequest">
+		<map-to xml="UpdateRateRequest"/>
+		<field name="singleRateUpdates" type="com.rose.mps.update.domain.SingleRateUpdate" collection="arraylist">
+			<bind-xml name="SingleRateUpdate" node="element" location="SingleRateUpdates"/>
+		</field>
+		<field name="token">
+			<bind-xml name="Token" node="attribute"/>
+		</field>
+		<field name="hotelCode">
+			<bind-xml name="HotelCode" node="attribute"/>
+		</field>
+		<field name="owerId">
+			<bind-xml name="OwerId" node="attribute"/>
+		</field>
+		<field name="userName">
+			<bind-xml name="UserName" node="attribute"/>
+		</field>
+		<field name="password">
+			<bind-xml name="Password" node="attribute"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.mps.update.domain.SingleRateUpdate">
+		<map-to xml="SingleRateUpdate"/>
+		<field name="roomTypeCode">
+			<bind-xml name="RoomTypeCode" node="attribute"/>
+		</field>
+		<field name="dateSpan" type="com.rose.mps.update.domain.DateSpan">
+			<bind-xml name="DateSpan" node="element"/>
+		</field>
+		<field name="occupancyRate" type="com.rose.mps.update.domain.OccupancyRate">
+			<bind-xml name="OccupancyRate" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.mps.update.domain.OccupancyRate">
+		<map-to xml="OccupancyRate"/>
+		<field name="currencyCode">
+			<bind-xml name="CurrencyCode" node="attribute"/>
+		</field>
+		<field name="rates" type="com.rose.mps.update.domain.Rate" collection="arraylist">
+			<bind-xml name="Rate" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.mps.update.domain.Rate">
+		<map-to xml="Rate"/>
+		<field name="amountBeforeTax">
+			<bind-xml name="AmountBeforeTax" node="attribute"/>
+		</field>
+		<field name="amountAfterTax">
+			<bind-xml name="AmountAfterTax" node="attribute"/>
+		</field>
+		<field name="guestCount">
+			<bind-xml name="GuestCount" node="attribute"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.mps.update.domain.DateSpan">
+		<map-to xml="DateSpan"/>
+		<field name="startTime" set-method="setStartTimeString" get-method="getStartTimeString">
+			<bind-xml name="Start" node="attribute"/>
+		</field>
+		<field name="endTime" set-method="setEndTimeString" get-method="getEndTimeString">
+			<bind-xml name="End" node="attribute"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.mps.update.domain.InventoryUpdateRequest">
+		<map-to xml="UpdateInventoryRequest"/>
+		<field name="singleInventoryUpdates" type="com.rose.mps.update.domain.SingleInventoryUpdate" collection="arraylist">
+			<bind-xml name="SingleInventoryUpdate" node="element" location="SingleInventoryUpdates"/>
+		</field>
+		<field name="token">
+			<bind-xml name="Token" node="attribute"/>
+		</field>
+		<field name="hotelCode">
+			<bind-xml name="HotelCode" node="attribute"/>
+		</field>
+		<field name="owerId">
+			<bind-xml name="OwerId" node="attribute"/>
+		</field>
+		<field name="userName">
+			<bind-xml name="UserName" node="attribute"/>
+		</field>
+		<field name="password">
+			<bind-xml name="Password" node="attribute"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.mps.update.domain.SingleInventoryUpdate">
+		<map-to xml="SingleInventoryUpdate"/>
+		<field name="roomTypeCode">
+			<bind-xml name="RoomTypeCode" node="attribute"/>
+		</field>
+		<field name="dateSpan" type="com.rose.mps.update.domain.DateSpan">
+			<bind-xml name="DateSpan" node="element"/>
+		</field>
+		<field name="count">
+			<bind-xml name="Count" node="attribute"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.mps.update.domain.RateUpdateResponse">
+		<map-to xml="UpdateRateResponse"/>
+		<field name="token">
+			<bind-xml name="Token" node="attribute"/>
+		</field>
+		<field name="serviceWarnings" type="com.rose.mps.update.domain.ServiceWarning" collection="arraylist">
+			<bind-xml name="ServiceWarning" node="element" location="ServiceWarnings"/>
+		</field>
+		<field name="serviceErrors" type="com.rose.mps.update.domain.ServiceError" collection="arraylist">
+			<bind-xml name="ServiceError" node="element" location="ServiceErrors"/>
+		</field>
+	</class>
+	<class name="com.rose.mps.update.domain.InventoryUpdateResponse">
+		<map-to xml="UpdateInventoryResponse"/>
+		<field name="token">
+			<bind-xml name="Token" node="attribute"/>
+		</field>
+		<field name="serviceWarnings" type="com.rose.mps.update.domain.ServiceWarning" collection="arraylist">
+			<bind-xml name="ServiceWarning" node="element" location="ServiceWarnings"/>
+		</field>
+		<field name="serviceErrors" type="com.rose.mps.update.domain.ServiceError" collection="arraylist">
+			<bind-xml name="ServiceError" node="element" location="ServiceErrors"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.mps.update.domain.ServiceError">
+		<map-to xml="ServiceError"/>
+		<field name="code">
+			<bind-xml name="Code" node="attribute" />
+		</field>
+		<field name="value">
+			<bind-xml name="Value" node="attribute" />
+		</field>
+	</class>
+	<class name="com.rose.mps.update.domain.ServiceWarning">
+		<map-to xml="ServiceWarning"/>
+		<field name="code">
+			<bind-xml name="Code" node="attribute" />
+		</field>
+		<field name="value">
+			<bind-xml name="Value" node="attribute" />
+		</field>
+	</class>
+</mapping>

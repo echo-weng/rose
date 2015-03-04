@@ -18,6 +18,13 @@ public class DateSpan extends CloneableValueObject{
 	 * 结束时间
 	 */
 	private Date endTime;
+	
+	public DateSpan(){}
+	
+	public DateSpan(Date startTime, Date endTime){
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
 
 	public Date getStartTime() {
 		return startTime;

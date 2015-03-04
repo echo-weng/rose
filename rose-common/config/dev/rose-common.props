@@ -1,2 +1,18 @@
+jdbc.jdbcUrl=jdbc:mysql:///rose_db?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true&useServerPrepStmts=true&useCursorFetch=true
+jdbc.minPoolSize=10
+jdbc.maxPoolSize=50
+jdbc.user=root #sec
+jdbc.password=101714 #sec
+
 inventory.queue.size=100
 rate.queue.size=100
+
+elong.username=elongtest #sec
+elong.password=elongtest #sec
+elong.server.url=http://directconnection/HotelAPI/V1.0/SouthBoundService.svc
+
+elong.reservation.username=elong #sec
+elong.reservation.password=elong123 #sec
+
+mps.request.username=mps #sec
+mps.request.password=mps #sec

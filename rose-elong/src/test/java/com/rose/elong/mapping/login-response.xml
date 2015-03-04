@@ -1,0 +1,20 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	<s:Body>
+		<LoginResponse xmlns="http://tempuri.org/">
+			<LoginResult
+				xmlns:a="http://schemas.datacontract.org/2004/07/com.eLong.Hotel.SouthBoundService.Model"
+				xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<a:ResponseHead>
+					<a:ErrorCode i:nil="true" />
+					<a:GUID i:nil="true" />
+					<a:ResultMessage>SUCCESS</a:ResultMessage>
+					<a:ResultStatus>0</a:ResultStatus>
+					<a:TimeStamp>2015-02-24T19:49:46.640625+08:00</a:TimeStamp>
+					<a:Version>1</a:Version>
+				</a:ResponseHead>
+				<a:LoginToken>187ac6bf-3711-4a12-a91f-3aa371df1f5b</a:LoginToken>
+				<a:LoginTokenExpiredTime>2015-02-24T20:48:22.89</a:LoginTokenExpiredTime>
+			</LoginResult>
+		</LoginResponse>
+	</s:Body>
+</s:Envelope>

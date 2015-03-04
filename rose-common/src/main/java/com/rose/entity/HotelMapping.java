@@ -12,7 +12,7 @@ import com.rose.entity.base.Mapping;
  * @author echo
  */
 @Entity
-@Table(name = "hotel_mapping")
+@Table(name = "t_hotel_mapping")
 public class HotelMapping extends Mapping{
 	
 	/**
@@ -24,8 +24,8 @@ public class HotelMapping extends Mapping{
 	/**
 	 * 酒店集团id
 	 */
-	@Column(name = "hotel_group_id")
-	private Long hotelGroupId;
+	@Column(name = "hotel_supply_id")
+	private Long hotelSupplyId;
 
 	public String getOtaCode() {
 		return otaCode;
@@ -35,12 +35,12 @@ public class HotelMapping extends Mapping{
 		this.otaCode = otaCode;
 	}
 
-	public Long getHotelGroupId() {
-		return hotelGroupId;
+	public Long getHotelSupplyId() {
+		return hotelSupplyId;
 	}
 
-	public void setHotelGroupId(Long hotelGroupId) {
-		this.hotelGroupId = hotelGroupId;
+	public void setHotelSupplyId(Long hotelSupplyId) {
+		this.hotelSupplyId = hotelSupplyId;
 	}
-	
+
 }

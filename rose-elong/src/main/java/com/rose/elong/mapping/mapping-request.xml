@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping xmlns="http://castor.exolab.org/">
+	<class name="com.rose.elong.domain.request.Login">
+		<map-to xml="Login" ns-uri="http://tempuri.org/"/>
+		<field name="requestHead" type="com.rose.elong.domain.request.RequestHead">
+			<bind-xml name="RequestHead" node="element" location="loginRequest"/>
+		</field>
+		<field name="userName">
+			<bind-xml name="UserName" node="element" location="loginRequest"/>
+		</field>
+		<field name="password">
+			<bind-xml name="Password" node="element" location="loginRequest"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.request.RequestHead">
+		<map-to xml="RequestHead" ns-uri="http://schemas.datacontract.org/2004/07/com.eLong.Hotel.SouthBoundService.Model"/>
+		<field name="guid">
+			<bind-xml name="GUID" node="element"/>
+		</field>
+		<field name="language">
+			<bind-xml name="Language" node="element"/>
+		</field>
+		<field name="loginToken">
+			<bind-xml name="LoginToken" node="element"/>
+		</field>
+		<field name="version">
+			<bind-xml name="Version" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.request.DayOfWeek">
+		<map-to xml="DayOfWeek" ns-uri="http://tempuri.org/"/>
+		<field name="fri">
+			<bind-xml name="Fri" node="element"/>
+		</field>
+		<field name="mon">
+			<bind-xml name="Mon" node="element"/>
+		</field>
+		<field name="sat">
+			<bind-xml name="Sat" node="element"/>
+		</field>
+		<field name="sun">
+			<bind-xml name="Sun" node="element"/>
+		</field>
+		<field name="thu">
+			<bind-xml name="Thu" node="element"/>
+		</field>
+		<field name="tue">
+			<bind-xml name="Tue" node="element"/>
+		</field>
+		<field name="wed">
+			<bind-xml name="Wed" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.request.UpdateRoomRateRequest">
+		<map-to xml="UpdateRoomRate" ns-uri="http://tempuri.org/"/>
+		<field name="requestHead" type="com.rose.elong.domain.request.RequestHead">
+			<bind-xml name="RequestHead" node="element" location="updateRoomRateRequest"/>
+		</field>
+		<field name="hotelCode">
+			<bind-xml name="HotelCode" node="element" location="updateRoomRateRequest"/>
+		</field>
+		<field name="roomAmounts" type="com.rose.elong.domain.request.UpdateRoomRateAmountsItem" collection="arraylist">
+			<bind-xml name="UpdateRoomRateAmountsItem" node="element" location="updateRoomRateRequest/RoomAmounts"/>
+		</field>
+	</class>
+	<class name="com.rose.elong.domain.request.UpdateRoomRateAmountsItem">
+		<map-to xml="UpdateRoomRateAmountsItem" ns-uri="http://tempuri.org/"/>
+		<field name="beginDate">
+			<bind-xml name="BeginDate" node="element"/>
+		</field>
+		<field name="endDate">
+			<bind-xml name="EndDate" node="element"/>
+		</field>
+		<field name="currencyCode">
+			<bind-xml name="CurrencyCode" node="element"/>
+		</field>
+		<field name="extraAdultRateAmount">
+			<bind-xml name="ExtraAdultRateAmount" node="element"/>
+		</field>
+		<field name="rateAmount">
+			<bind-xml name="RateAmount" node="element"/>
+		</field>
+		<field name="rateCode">
+			<bind-xml name="RateCode" node="element"/>
+		</field>
+		<field name="retailPrice">
+			<bind-xml name="RetailPrice" node="element"/>
+		</field>
+		<field name="roomTypeCode">
+			<bind-xml name="RoomTypeCode" node="element"/>
+		</field>
+		<field name="dayOfWeek" type="com.rose.elong.domain.request.DayOfWeek">
+			<bind-xml name="DayOfWeek" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.request.UpdateRoomRateStatusRequest">
+		<map-to xml="UpdateRoomRateStatus" ns-uri="http://tempuri.org/"/>
+		<field name="requestHead" type="com.rose.elong.domain.request.RequestHead">
+			<bind-xml name="RequestHead" node="element" location="updateRoomRateStatusRequest"/>
+		</field>
+		<field name="hotelCode">
+			<bind-xml name="HotelCode" node="element" location="updateRoomRateStatusRequest"/>
+		</field>
+		<field name="roomRateList" type="com.rose.elong.domain.request.UpdateRoomRateStatusChangeItem" collection="arraylist">
+			<bind-xml name="UpdateRoomRateStatusChangeItem" node="element" location="updateRoomRateStatusRequest/RoomRateList"/>
+		</field>
+	</class>
+	<class name="com.rose.elong.domain.request.UpdateRoomRateStatusChangeItem">
+		<map-to xml="UpdateRoomRateStatusChangeItem" ns-uri="http://tempuri.org/"/>
+		<field name="beginDate">
+			<bind-xml name="BeginDate" node="element"/>
+		</field>
+		<field name="endDate">
+			<bind-xml name="EndDate" node="element"/>
+		</field>
+		<field name="rateCode">
+			<bind-xml name="RateCode" node="element"/>
+		</field>
+		<field name="roomTypeCode">
+			<bind-xml name="RoomTypeCode" node="element"/>
+		</field>
+		<field name="dayOfWeek" type="com.rose.elong.domain.request.DayOfWeek">
+			<bind-xml name="DayOfWeek" node="element"/>
+		</field>
+		<field name="status">
+			<bind-xml name="Status" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.request.UpdateRoomTypeAmountRequest">
+		<map-to xml="UpdateRoomTypeAmount" ns-uri="http://tempuri.org/"/>
+		<field name="requestHead">
+			<bind-xml name="RequestHead" node="element" type="com.rose.elong.domain.request.RequestHead" location="updateRoomTypeAmountRequest"/>
+		</field>
+		<field name="hotelCode">
+			<bind-xml name="HotelCode" node="element" location="updateRoomTypeAmountRequest"/>
+		</field>
+		<field name="roomTypeList" type="com.rose.elong.domain.request.UpdateRoomTypeAmountChangeItem" collection="arraylist">
+			<bind-xml name="UpdateRoomTypeAmountChangeItem" node="element" location="updateRoomTypeAmountRequest/RoomTypeList"/>
+		</field>
+	</class>
+	<class name="com.rose.elong.domain.request.UpdateRoomTypeAmountChangeItem">
+		<map-to xml="UpdateRoomTypeAmountChangeItem" ns-uri="http://tempuri.org/"/>
+		<field name="amount">
+			<bind-xml name="Amount" node="element"/>
+		</field>
+		<field name="beginDate">
+			<bind-xml name="BeginDate" node="element"/>
+		</field>
+		<field name="arriveDate">
+			<bind-xml name="ArriveDate" node="element"/>
+		</field>
+		<field name="beginTime">
+			<bind-xml name="BeginTime" node="element"/>
+		</field>
+		<field name="endDate">
+			<bind-xml name="EndDate" node="element"/>
+		</field>
+		<field name="endTime">
+			<bind-xml name="EndTime" node="element"/>
+		</field>
+		<field name="leaveDate">
+			<bind-xml name="LeaveDate" node="element"/>
+		</field>
+		<field name="inventoryUpdateType">
+			<bind-xml name="InventoryUpdateType" node="element"/>
+		</field>
+		<field name="roomTypeCode">
+			<bind-xml name="RoomTypeCode" node="element"/>
+		</field>
+		<field name="status">
+			<bind-xml name="Status" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.request.UpdateRoomTypeStatusRequest">
+		<map-to xml="UpdateRoomTypeStatus" ns-uri="http://tempuri.org/"/>
+		<field name="requestHead">
+			<bind-xml name="RequestHead" node="element" type="com.rose.elong.domain.request.RequestHead" location="updateRoomTypeStatusRequest"/>
+		</field>
+		<field name="hotelCode">
+			<bind-xml name="HotelCode" node="element" location="updateRoomTypeStatusRequest"/>
+		</field>
+		<field name="roomTypeList" type="com.rose.elong.domain.request.UpdateRoomRateStatusChangeItem" collection="arraylist">
+			<bind-xml name="UpdateRoomTypeStatusChangeItem" node="element" location="updateRoomTypeStatusRequest/RoomTypeList"/>
+		</field>
+	</class>
+	<class name="com.rose.elong.domain.request.UpdateRoomTypeStatusChangeItem">
+		<map-to xml="UpdateRoomTypeStatusChangeItem" ns-uri="http://tempuri.org/"/>
+		<field name="beginDate">
+			<bind-xml name="BeginDate" node="element"/>
+		</field>
+		<field name="endDate">
+			<bind-xml name="EndDate" node="element"/>
+		</field>
+		<field name="inventoryUpdateType">
+			<bind-xml name="InventoryUpdateType" node="element"/>
+		</field>
+		<field name="roomTypeCode">
+			<bind-xml name="RoomTypeCode" node="element"/>
+		</field>
+		<field name="status">
+			<bind-xml name="Status" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.request.UpdateReserveInfo">
+		<map-to xml="UpdateReserveInfo" ns-uri="http://tempuri.org/"/>
+		<field name="requestHead">
+			<bind-xml name="RequestHead" node="element" type="com.rose.elong.domain.request.RequestHead" location="updateReserveInfo"/>
+		</field>
+		<field name="reserveList" type="com.rose.elong.domain.request.ReserveInfo" collection="arraylist">
+			<bind-xml name="ReserveInfo" node="element" location="updateReserveInfo/ReserveList"/>
+		</field>
+	</class>
+	<class name="com.rose.elong.domain.request.ReserveInfo">
+		<map-to xml="ReserveInfo" ns-uri="http://tempuri.org/"/>
+		<field name="checkinDate">
+			<bind-xml name="CheckinDate" node="element"/>
+		</field>
+		<field name="checkoutDate">
+			<bind-xml name="CheckoutDate" node="element"/>
+		</field>
+		<field name="confirmNum">
+			<bind-xml name="ConfirmNum" node="element"/>
+		</field>
+		<field name="guestName">
+			<bind-xml name="GuestName" node="element"/>
+		</field>
+		<field name="hotelCode">
+			<bind-xml name="HotelCode" node="element"/>
+		</field>
+		<field name="reserStatus">
+			<bind-xml name="ReserStatus" node="element"/>
+		</field>
+		<field name="reserverNo">
+			<bind-xml name="ReserverNo" node="element"/>
+		</field>
+		<field name="roomNum">
+			<bind-xml name="RoomNum" node="element"/>
+		</field>
+	</class>
+	
+</mapping>

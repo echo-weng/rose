@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping xmlns="http://castor.exolab.org/">
+	<class name="com.rose.elong.domain.response.ElongResponse">
+		<map-to xml="Response" ns-uri="http://tempuri.org/" />
+		<field name="responseHead" type="com.rose.elong.domain.response.ResponseHead">
+			<bind-xml name="ResponseHead" node="element" />
+		</field>
+	</class>
+
+	<class name="com.rose.elong.domain.response.ResponseHead">
+		<map-to xml="ResponseHead"
+			ns-uri="http://schemas.datacontract.org/2004/07/com.eLong.Hotel.SouthBoundService.Model" />
+		<field name="resultStatus">
+			<bind-xml name="ResultStatus" node="element" />
+		</field>
+		<field name="resultMessage">
+			<bind-xml name="ResultMessage" node="element" />
+		</field>
+		<field name="errorCode">
+			<bind-xml name="ErrorCode" node="element" />
+		</field>
+		<field name="timeStamp">
+			<bind-xml name="TimeStamp" node="element" />
+		</field>
+		<field name="guid">
+			<bind-xml name="GUID" node="element" />
+		</field>
+		<field name="version">
+			<bind-xml name="Version" node="element" />
+		</field>
+	</class>
+
+	<class name="com.rose.elong.domain.response.LoginResponse">
+		<map-to xml="LoginResponse" ns-uri="http://tempuri.org/" />
+		<field name="loginToken">
+			<bind-xml name="com:LoginToken" node="element" location="LoginResult"
+				xmlns:com="http://schemas.datacontract.org/2004/07/com.eLong.Hotel.SouthBoundService.Model" />
+		</field>
+		<field name="loginTokenExpiredTime">
+			<bind-xml name="com:LoginTokenExpiredTime" node="element"
+				location="LoginResult"
+				xmlns:com="http://schemas.datacontract.org/2004/07/com.eLong.Hotel.SouthBoundService.Model" />
+		</field>
+		<field name="responseHead" type="com.rose.elong.domain.response.ResponseHead">
+			<bind-xml name="ResponseHead" node="element" location="LoginResult" />
+		</field>
+	</class>
+</mapping>

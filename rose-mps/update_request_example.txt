@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UpdateInventoryRequest Token="2498578445465412" HotelCode="9988789" OwerId="" UserName="" Password="">
+	<SingleInventoryUpdates>
+		<SingleInventoryUpdate RoomTypeCode="Standard" Count="3">
+			<DateSpan Start="2009-09-11" End="2009-09-13"/>
+		</SingleInventoryUpdate>
+	</SingleInventoryUpdates>
+</UpdateInventoryRequest>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<UpdateRateRequest Token="2498578445465412" HotelCode="NYCHA" OwerId="" UserName="" Password="">
+	<SingleRateUpdates>
+		<SingleRateUpdate RoomTypeCode="Deluxe">
+			<DateSpan Start="2009-09-11" End="2009-09-11"/>
+			<OccupancyRate CurrencyCode="USD">
+				<Rate AmountBeforeTax="15" GuestCount="1"/>
+				<Rate AmountBeforeTax="15" GuestCount="2"/>
+				<Rate AmountBeforeTax="25" GuestCount="3"/>
+			</OccupancyRate>
+		</SingleRateUpdate>
+		<SingleRateUpdate RoomTypeCode="Standard">
+			<DateSpan Start="2009-09-12" End="2009-09-12"/>
+			<OccupancyRate CurrencyCode="USD">
+				<Rate AmountBeforeTax="15"/>
+			</OccupancyRate>
+		</SingleRateUpdate>
+	</SingleRateUpdates>
+</UpdateRateRequest>

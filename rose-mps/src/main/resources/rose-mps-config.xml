@@ -9,10 +9,10 @@
 		<property name="fileName" value="rose-mps.props"/>
 	</bean>
 	
-	<bean id="hotelStub" class="com.rose.service.Hotel">
+	<bean id="hotelStub" class="com.rose.mps.service.Hotel">
 		<constructor-arg index="0">
 			<bean class="java.net.URL">
-				<constructor-arg value="${mps.server.url}"/>
+				<constructor-arg value="${mps.hotel.url}"/>
 			</bean>
 		</constructor-arg>
 		<constructor-arg index="1" value="${mps.server.username}"/>
@@ -21,4 +21,15 @@
 	
 	<bean id="hotelService" factory-bean="hotelStub" factory-method="getWs"/>
 	
+	<!-- <bean id="orderStub" class="com.rose.mps.service.Order">
+		<constructor-arg index="0">
+			<bean class="java.net.URL">
+				<constructor-arg value="${mps.order.url}"/>
+			</bean>
+		</constructor-arg>
+		<constructor-arg index="1" value="${mps.server.username}"/>
+		<constructor-arg index="2" value="${mps.server.password}"/>
+	</bean> 
+	
+	<bean id="orderService" factory-bean="orderStub" factory-method="getBasic"/> -->
 </beans>

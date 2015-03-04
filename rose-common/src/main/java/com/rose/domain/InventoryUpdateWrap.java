@@ -1,5 +1,7 @@
 package com.rose.domain;
 
+import java.util.List;
+
 /**
  * InventoryUpdate 包装类
  *
@@ -8,11 +10,11 @@ package com.rose.domain;
 public class InventoryUpdateWrap {
 	
 	private InventoryUpdate inventoryUpdate;
-	private Contract contract;
+	private List<Contract> contracts;
 	
-	public InventoryUpdateWrap(InventoryUpdate inventoryUpdate, Contract contract){
+	public InventoryUpdateWrap(InventoryUpdate inventoryUpdate, List<Contract> contracts){
 		this.inventoryUpdate = inventoryUpdate;
-		this.contract = contract;
+		this.contracts = contracts;
 	}
 
 	public InventoryUpdate getInventoryUpdate() {
@@ -23,12 +25,12 @@ public class InventoryUpdateWrap {
 		this.inventoryUpdate = inventoryUpdate;
 	}
 
-	public Contract getContract() {
-		return contract;
+	public List<Contract> getContracts() {
+		return contracts;
 	}
 
-	public void setContract(Contract contract) {
-		this.contract = contract;
+	public void setContracts(List<Contract> contracts) {
+		this.contracts = contracts;
 	}
 
 }

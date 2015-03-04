@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN"  "http://castor.exolab.org/mapping.dtd">
+<mapping xmlns="http://castor.exolab.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://castor.exolab.org/ http://castor.org/mapping.xsd">
+	<class name="com.rose.elong.domain.reservation.request.HotelResRequest">
+		<map-to xml="OTA_HotelResRQ"/>
+		<field name="timeStamp"  set-method="setTimeStampString" get-method="getTimeStampString">
+			<bind-xml name="TimeStamp" node="attribute" />
+		</field>
+		<field name="version">
+			<bind-xml name="Version" node="attribute" />
+		</field>
+		<field name="userName">
+			<bind-xml name="UserName" node="attribute" />
+		</field>
+		<field name="password">
+			<bind-xml name="Password" node="attribute" />
+		</field>
+		<field name="echoToken">
+			<bind-xml name="EchoToken" node="attribute" />
+		</field>
+		<field name="primaryLangID">
+			<bind-xml name="PrimaryLangID" node="attribute" />
+		</field>
+		<field name="requestorID" type="com.rose.elong.domain.reservation.struct.RequestorID">
+			<bind-xml name="RequestorID" node="element" location="POS/Source"/>
+		</field>
+		<field name="hotelReservations" type="com.rose.elong.domain.reservation.struct.HotelReservation" collection="arraylist">
+			<bind-xml name="HotelReservation" node="element" location="HotelReservations"/>
+		</field>
+		<field name="ratePlanPolicy" type="com.rose.elong.domain.reservation.struct.RatePlanPolicy">
+			<bind-xml name="RatePlanPolicy" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.RequestorID">
+		<map-to xml="RequestorID"/>
+		<field name="type">
+			<bind-xml name="Type" node="attribute" />
+		</field>
+		<field name="id">
+			<bind-xml name="ID" node="attribute" />
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.RatePlanPolicy">
+		<map-to xml="RatePlanPolicy"/>
+		<field name="canBeCanceled">
+			<bind-xml name="CanBeCanceled" node="element" />
+		</field>
+		<field name="cancelBeforeDays">
+			<bind-xml name="CancelBeforeDays" node="element" />
+		</field>
+		<field name="cancelBeforeTime">
+			<bind-xml name="CancelBeforeTime" node="element" />
+		</field>
+		<field name="cashScaleType">
+			<bind-xml name="CashScaleType" node="element" />
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.HotelReservation">
+		<map-to xml="HotelReservation"/>
+		<field name="uniqueIDs" type="com.rose.elong.domain.reservation.struct.UniqueID" collection="arraylist">
+			<bind-xml name="UniqueID" node="element"/>
+		</field>
+		<field name="roomStays" type="com.rose.elong.domain.reservation.struct.RoomStay" collection="arraylist">
+			<bind-xml name="RoomStay" node="element" location="RoomStays"/>
+		</field>
+		<field name="resGuests" type="com.rose.elong.domain.reservation.struct.ResGuest" collection="arraylist">
+			<bind-xml name="ResGuest" node="element" location="ResGuests"/>
+		</field>
+		<field name="resGlobalInfo" type="com.rose.elong.domain.reservation.struct.ResGlobalInfo">
+			<bind-xml name="ResGlobalInfo" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.ResGlobalInfo">
+		<map-to xml="ResGlobalInfo"/>
+		<field name="timeSpan" type="com.rose.elong.domain.reservation.struct.TimeSpan">
+			<bind-xml name="TimeSpan" node="element"/>
+		</field>
+		<field name="earliestCheckInTime" set-method="setEarliestCheckInTimeString" get-method="getEarliestCheckInTimeString">
+			<bind-xml name="EarliestCheckInTime" node="element"/>
+		</field>
+		<field name="latestCheckInTime" set-method="setLatestCheckInTimeString" get-method="getLatestCheckInTimeString">
+			<bind-xml name="LatestCheckInTime" node="element"/>
+		</field>
+		<field name="remark">
+			<bind-xml name="Remark" node="element"/>
+		</field>
+		<field name="guaranteeType">
+			<bind-xml name="GuaranteeType" node="attribute" location="Guarantee"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.TimeSpan">
+		<map-to xml="TimeSpan"/>
+		<field name="end" set-method="setEndString" get-method="getEndString">
+			<bind-xml name="End" node="attribute"/>
+		</field>
+		<field name="start" set-method="setStartString" get-method="getStartString">
+			<bind-xml name="Start" node="attribute"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.ResGuest">
+		<map-to xml="ResGuest"/>
+		<field name="personNames" type="com.rose.elong.domain.reservation.struct.PersonName" collection="arraylist">
+			<bind-xml name="PersonName" node="element" location="Profiles/ProfileInfo/Profile/Customer"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.PersonName">
+		<map-to xml="PersonName"/>
+		<field name="givenName">
+			<bind-xml name="GivenName" node="element"/>
+		</field>
+		<field name="surname">
+			<bind-xml name="Surname" node="element"/>
+		</field>
+		<field name="middleName">
+			<bind-xml name="MiddleName" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.RoomStay">
+		<map-to xml="RoomStay"/>
+		<field name="roomTypes" type="com.rose.elong.domain.reservation.struct.RoomType" collection="arraylist">
+			<bind-xml name="RoomType" node="element" location="RoomTypes"/>
+		</field>
+		<field name="ratePlans" type="com.rose.elong.domain.reservation.struct.RatePlan" collection="arraylist">
+			<bind-xml name="RatePlan" node="element" location="RatePlans"/>
+		</field>
+		<field name="roomRates" type="com.rose.elong.domain.reservation.struct.RoomRate" collection="arraylist">
+			<bind-xml name="RoomRate" node="element" location="RoomRates"/>
+		</field>
+		<field name="guestCounts" type="com.rose.elong.domain.reservation.struct.GuestCount" collection="arraylist">
+			<bind-xml name="GuestCount" node="element" location="GuestCounts"/>
+		</field>
+		<field name="hotelCode">
+			<bind-xml name="HotelCode" node="attribute" location="BasicPropertyInfo"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.RatePlan">
+		<map-to xml="RatePlan"/>
+		<field name="ratePlanCode">
+			<bind-xml name="RatePlanCode" node="attribute"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.GuestCount">
+		<map-to xm="GuestCount"/>
+		<field name="ageQualifyingCode">
+			<bind-xml name="AgeQualifyingCode" node="attribute"/>
+		</field>
+		<field name="count">
+			<bind-xml name="Count" node="attribute"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.RoomRate">
+		<map-to xml="RoomRate"/>
+		<field name="ratePlanCode">
+			<bind-xml name="RatePlanCode" node="attribute"/>
+		</field>
+		<field name="roomTypeCode">
+			<bind-xml name="RoomTypeCode" node="attribute"/>
+		</field>
+		<field name="rates" type="com.rose.elong.domain.reservation.struct.Rate" collection="arraylist">
+			<bind-xml name="Rate" node="element" location="Rates"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.Rate">
+		<map-to xml="Rate"/>
+		<field name="baseRates" type="com.rose.elong.domain.reservation.struct.BaseRate" collection="arraylist">
+			<bind-xml name="Base" node="element"/>
+		</field>
+		<field name="totalRate" type="com.rose.elong.domain.reservation.struct.TotalRate">
+			<bind-xml name="Total" node="element"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.BaseRate">
+		<map-to xml="Base"/>
+		<field name="amountBeforeTax">
+			<bind-xml name="AmountBeforeTax" node="attribute"/>
+		</field>
+		<field name="amountAfterTax">
+			<bind-xml name="AmountAfterTax" node="attribute"/>
+		</field>
+		<field name="currencyCode">
+			<bind-xml name="CurrencyCode" node="attribute"/>
+		</field>
+		<field name="effectDate" set-method="setEffectDateString" get-method="getEffectDateString">
+			<bind-xml name="EffectDate" node="attribute"/>
+		</field>
+	</class>
+	<class name="com.rose.elong.domain.reservation.struct.TotalRate">
+		<map-to xml="Total"/>
+		<field name="amountBeforeTax">
+			<bind-xml name="AmountBeforeTax" node="attribute"/>
+		</field>
+		<field name="amountAfterTax">
+			<bind-xml name="AmountAfterTax" node="attribute"/>
+		</field>
+		<field name="currencyCode">
+			<bind-xml name="CurrencyCode" node="attribute"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.RoomType">
+		<map-to xml="RoomType"/>
+		<field name="roomTypeCode">
+			<bind-xml name="RoomTypeCode" node="attribute"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.UniqueID">
+		<map-to xml="UniqueID"/>
+		<field name="type">
+			<bind-xml name="Type" node="attribute" />
+		</field>
+		<field name="id">
+			<bind-xml name="ID" node="attribute" />
+		</field>
+		<field name="companyName">
+			<bind-xml name="CompanyName" node="element" />
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.response.HotelResRS">
+		<map-to xml="OTA_HotelResRS"/>
+		<field name="timeStamp"  set-method="setTimeStampString" get-method="getTimeStampString">
+			<bind-xml name="TimeStamp" node="attribute" />
+		</field>
+		<field name="version">
+			<bind-xml name="Version" node="attribute" />
+		</field>
+		<field name="echoToken">
+			<bind-xml name="EchoToken" node="attribute" />
+		</field>
+		<field name="primaryLangID">
+			<bind-xml name="PrimaryLangID" node="attribute" />
+		</field>
+		<field name="status">
+			<bind-xml name="Status" node="attribute" />
+		</field>
+		<field name="success">
+			<bind-xml name="Success" node="element" />
+		</field>
+		<field name="requestorID" type="com.rose.elong.domain.reservation.struct.RequestorID">
+			<bind-xml name="RequestorID" node="element" location="POS/Source"/>
+		</field>
+		<field name="uniqueIDs" type="com.rose.elong.domain.reservation.struct.UniqueID" collection="arraylist">
+			<bind-xml name="UniqueID" node="element"/>
+		</field>
+		<field name="warnings" type="com.rose.elong.domain.reservation.struct.Warning" collection="arraylist">
+			<bind-xml name="Warning" node="element" location="Warnings"/>
+		</field>
+		<field name="errors" type="com.rose.elong.domain.reservation.struct.ElongError" collection="arraylist">
+			<bind-xml name="Error" node="element" location="Errors"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.struct.ElongError">
+		<map-to xml="Error"/>
+		<field name="language">
+			<bind-xml name="Language" node="attribute" />
+		</field>
+		<field name="type">
+			<bind-xml name="Type" node="attribute" />
+		</field>
+		<field name="code">
+			<bind-xml name="Code" node="attribute" />
+		</field>
+		<field name="text">
+			<bind-xml node="text" />
+		</field>
+	</class>
+	<class name="com.rose.elong.domain.reservation.struct.Warning">
+		<map-to xml="Warning"/>
+		<field name="language">
+			<bind-xml name="Language" node="attribute" />
+		</field>
+		<field name="type">
+			<bind-xml name="Type" node="attribute" />
+		</field>
+		<field name="code">
+			<bind-xml name="Code" node="attribute" />
+		</field>
+		<field name="text">
+			<bind-xml node="text" />
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.request.ModifyResRequest">
+		<map-to xml="OTA_ModifyResRQ"/>
+		<field name="timeStamp"  set-method="setTimeStampString" get-method="getTimeStampString">
+			<bind-xml name="TimeStamp" node="attribute" />
+		</field>
+		<field name="version">
+			<bind-xml name="Version" node="attribute" />
+		</field>
+		<field name="userName">
+			<bind-xml name="UserName" node="attribute" />
+		</field>
+		<field name="password">
+			<bind-xml name="Password" node="attribute" />
+		</field>
+		<field name="echoToken">
+			<bind-xml name="EchoToken" node="attribute" />
+		</field>
+		<field name="primaryLangID">
+			<bind-xml name="PrimaryLangID" node="attribute" />
+		</field>
+		<field name="requestorID" type="com.rose.elong.domain.reservation.struct.RequestorID">
+			<bind-xml name="RequestorID" node="element" location="POS/Source"/>
+		</field>
+		<field name="hotelReservations" type="com.rose.elong.domain.reservation.struct.HotelReservation" collection="arraylist">
+			<bind-xml name="HotelReservation" node="element" location="HotelReservations"/>
+		</field>
+	</class>
+	
+	<class name="com.rose.elong.domain.reservation.request.CancelRQ">
+		<map-to xml="OTA_CancelRQ"/>
+		<field name="timeStamp"  set-method="setTimeStampString" get-method="getTimeStampString">
+			<bind-xml name="TimeStamp" node="attribute" />
+		</field>
+		<field name="cancelType">
+			<bind-xml name="CancelType" node="attribute" />
+		</field>
+		<field name="version">
+			<bind-xml name="Version" node="attribute" />
+		</field>
+		<field name="userName">
+			<bind-xml name="UserName" node="attribute" />
+		</field>
+		<field name="password">
+			<bind-xml name="Password" node="attribute" />
+		</field>
+		<field name="echoToken">
+			<bind-xml name="EchoToken" node="attribute" />
+		</field>
+		<field name="primaryLangID">
+			<bind-xml name="PrimaryLangID" node="attribute" />
+		</field>
+		<field name="requestorID" type="com.rose.elong.domain.reservation.struct.RequestorID">
+			<bind-xml name="RequestorID" node="element" location="POS/Source"/>
+		</field>
+		<field name="uniqueIDs" type="com.rose.elong.domain.reservation.struct.UniqueID" collection="arraylist">
+			<bind-xml name="UniqueID" node="element"/>
+		</field>
+		<field name="reasons" type="java.lang.String" collection="arraylist">
+			<bind-xml name="Reason" node="text" location="Reasons"/>
+		</field>
+	</class>
+	<class name="com.rose.elong.domain.reservation.response.CancelRS">
+		<map-to xml="OTA_CancelRS"/>
+		<field name="timeStamp"  set-method="setTimeStampString" get-method="getTimeStampString">
+			<bind-xml name="TimeStamp" node="attribute" />
+		</field>
+		<field name="version">
+			<bind-xml name="Version" node="attribute" />
+		</field>
+		<field name="echoToken">
+			<bind-xml name="EchoToken" node="attribute" />
+		</field>
+		<field name="status">
+			<bind-xml name="Status" node="attribute" />
+		</field>
+		<field name="success">
+			<bind-xml name="Success" node="element" />
+		</field>
+		<field name="uniqueIDs" type="com.rose.elong.domain.reservation.struct.UniqueID" collection="arraylist">
+			<bind-xml name="UniqueID" node="element"/>
+		</field>
+		<field name="cancelInfoRS" type="com.rose.elong.domain.reservation.struct.UniqueID">
+			<bind-xml name="UniqueID" node="element" location="CancelInfoRS"/>
+		</field>
+		<field name="warnings" type="com.rose.elong.domain.reservation.struct.Warning" collection="arraylist">
+			<bind-xml name="Warning" node="element" location="Warnings"/>
+		</field>
+		<field name="errors" type="com.rose.elong.domain.reservation.struct.ElongError" collection="arraylist">
+			<bind-xml name="Error" node="element" location="Errors"/>
+		</field>
+	</class>
+</mapping>

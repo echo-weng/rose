@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping xmlns="http://castor.exolab.org/">
+	<class name="com.rose.domain.soap.Envelope">
+		<map-to xml="Envelope" ns-uri="http://schemas.xmlsoap.org/soap/envelope/" />
+		<field name="header">
+			<bind-xml name="Header" node="element" />
+		</field>
+		<field name="body">
+			<bind-xml name="Body" node="element" />
+		</field>
+	</class>
+	
+	<class name="com.rose.domain.soap.Header">
+		<map-to xml="Header" ns-uri="http://schemas.xmlsoap.org/soap/envelope/" />
+	</class>
+	
+	<class name="com.rose.domain.soap.Body">
+		<map-to xml="Body" ns-uri="http://schemas.xmlsoap.org/soap/envelope/" />
+		<field name="fault">
+			<bind-xml name="Fault" node="element"
+				type="com.rose.domain.soap.fault.Fault" />
+		</field>
+		<field name="message">
+			<bind-xml node="element" auto-naming="deriveByClass" />
+		</field>
+	</class>
+</mapping>

@@ -14,5 +14,11 @@
 			<groupId>com.rose</groupId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<dependency>
+			<artifactId>rose-webservice</artifactId>
+			<groupId>com.rose</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

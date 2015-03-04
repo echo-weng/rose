@@ -14,9 +14,9 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.rose.webservice.serializer.StreamSerializer;
 
 import com.rose.exception.RequestHandlerException;
-import com.rose.serializer.StreamSerializer;
 import com.rose.service.RequestHandlerService;
 import com.rose.spring.ApplicationContextUtil;
 import com.rose.utils.Charsets;
@@ -33,7 +33,8 @@ public abstract class RoseServlet extends HttpServlet{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final Log LOG = LogFactory.getLog(RoseServlet.class);
+	protected final Log LOG = LogFactory.getLog(this.getClass());
+	protected static final String CHAR_SET = "UTF-8";
 	
 	/**
 	 * 序列化器
@@ -51,7 +52,7 @@ public abstract class RoseServlet extends HttpServlet{
 			RoseRequest roseRequest = unmarshalRequest(req);
 			
 			RequestHandlerService requestHandlerService = ApplicationContextUtil.getBean(roseRequest.getHandlerServiceBeanName());
-			RoseResponse roseResponse = requestHandlerService.handlerRequest(roseRequest);
+			RoseResponse roseResponse = expectionHandler(roseRequest, requestHandlerService);
 			
 			//设置返回内容及编码
 			resp.setCharacterEncoding(roseResponse.getCharacterEncoding());
@@ -59,21 +60,33 @@ public abstract class RoseServlet extends HttpServlet{
 			
 			//返回结果
 			marshalResponse(roseResponse, resp);
-		} catch (RequestHandlerException e) {
-			
-		}catch (Exception e) {
+		} catch (Exception e) {
 			LOG.error(e);
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
 		}
 	}
 	
-	private RoseRequest unmarshalRequest(HttpServletRequest httpServletRequest) throws IOException {
+	protected RoseResponse expectionHandler(RoseRequest request, RequestHandlerService requesthandlerService) {
+		RoseResponse response = null;
+		try {
+			response = requesthandlerService.handlerRequest(request);
+		} catch (RequestHandlerException e) {
+			response = doWithException(e, request);
+		} catch (Exception e) {
+			response = doWithException(e, request);
+		}
+		return response;
+	}
+	
+	protected abstract RoseResponse doWithException(Exception e, RoseRequest request);
+	
+	protected RoseRequest unmarshalRequest(HttpServletRequest httpServletRequest) throws IOException {
 		String requestXml = IOUtils.toString(httpServletRequest.getInputStream());
 		LOG.info("Request receive:" + requestXml);
 		return (RoseRequest) streamSerializer.unmarshal(new ByteArrayInputStream(requestXml.getBytes()), Charsets.UTF_8);
 	}
 	
-	private void marshalResponse(RoseResponse response, HttpServletResponse httpServletResponse) throws Exception {
+	protected void marshalResponse(RoseResponse response, HttpServletResponse httpServletResponse) throws Exception {
 		String responseXml = marshalToString(response);
 		if (LOG.isInfoEnabled()) {
 			LOG.info("Response back:" + responseXml);
@@ -82,7 +95,7 @@ public abstract class RoseServlet extends HttpServlet{
 		httpServletResponse.getOutputStream().flush();
 	}
 	
-	private String marshalToString(RoseResponse roseResponse) throws UnsupportedEncodingException {
+	protected String marshalToString(RoseResponse roseResponse) throws UnsupportedEncodingException {
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		streamSerializer.marshal(roseResponse, outputStream, Charsets.UTF_8);
         return outputStream.toString("utf-8");
