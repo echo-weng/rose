@@ -41,7 +41,7 @@
 			<bind-xml name="CurrencyCode" node="attribute"/>
 		</field>
 		<field name="rates" type="com.rose.mps.update.domain.Rate" collection="arraylist">
-			<bind-xml name="Rate" node="element"/>
+			<bind-xml name="Rate" node="element" location="Rates"/>
 		</field>
 	</class>
 	

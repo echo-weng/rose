@@ -6,6 +6,7 @@ import org.rose.webservice.client.WebServiceClient;
 import org.rose.webservice.client.http.HttpConnectionContext;
 import org.rose.webservice.client.http.URLWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.rose.domain.soap.Body;
@@ -38,6 +39,7 @@ public class ElongWebClientImpl implements ElongWebClient {
 	private String language = "CN";
 	
 	@Autowired
+	@Qualifier("elongWebServiceClient")
 	private WebServiceClient webServiceClient;
 
 	@Override
@@ -107,6 +109,11 @@ public class ElongWebClientImpl implements ElongWebClient {
 		requestHead.setLoginToken(loginToken);
 		requestHead.setVersion(version);
 		return requestHead;
+	}
+	
+	@Override
+	public boolean loginTokenIsEmpty(){
+		return loginToken == null;
 	}
 	
 	public String getLoginToken() {

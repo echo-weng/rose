@@ -30,8 +30,8 @@ public class PropertyPlaceholderConfigurer extends
 	public String getConfigHome() {
 		return configHome;
 	}
-
-	protected Properties loadProperties(String fileName) {
+	
+	protected Properties loadProperties(String fileName, boolean isDir) {
 		String configHome = (this.configHome == null) ? ConfigHome.getDir() : this.configHome;
 
 		env = getEnv(configHome);
@@ -55,7 +55,13 @@ public class PropertyPlaceholderConfigurer extends
 		envProps.setProperty("config-home", configHome);
 		Properties props = new Properties();
 
-		PropertiesFileLoader.load(config, props, envProps);
+		if(isDir){
+			for(File file : config.listFiles()){
+				PropertiesFileLoader.load(file, props, envProps);
+			}
+		}else{
+			PropertiesFileLoader.load(config, props, envProps);
+		}
 
 		logger.info("Load env properties, fileName=[" + fileName + "], configDir=[" + configHome + "]");
 
@@ -84,7 +90,12 @@ public class PropertyPlaceholderConfigurer extends
 	}
 
 	public void setFileName(String fileName) {
-		properties = loadProperties(fileName);
+		properties = loadProperties(fileName, false);
+		super.setProperties(properties);
+	}
+	
+	public void setFileDir(String dir){
+		properties = loadProperties(dir, true);
 		super.setProperties(properties);
 	}
 

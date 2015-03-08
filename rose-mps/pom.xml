@@ -29,10 +29,17 @@
 			<artifactId>webservices-extra</artifactId>
 			<version>2.3.1</version>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>xerces</groupId>
 			<artifactId>xerces</artifactId>
 			<version>2.4.0</version>
-		</dependency> -->
+		</dependency>
+		
+		<dependency>
+			<groupId>me.andpay.ti</groupId>
+			<artifactId>ti-srv-util</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>

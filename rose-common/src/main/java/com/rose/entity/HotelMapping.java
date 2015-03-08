@@ -16,6 +16,11 @@ import com.rose.entity.base.Mapping;
 public class HotelMapping extends Mapping{
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * 渠道code
 	 */
 	@Column(name = "ota_code")
@@ -26,6 +31,16 @@ public class HotelMapping extends Mapping{
 	 */
 	@Column(name = "hotel_supply_id")
 	private Long hotelSupplyId;
+	
+	/**
+	 * pms酒店id
+	 */
+	private Long hotelId;
+	
+	/**
+	 * 是否关闭酒店
+	 */
+	private boolean close = false;
 
 	public String getOtaCode() {
 		return otaCode;
@@ -43,4 +58,20 @@ public class HotelMapping extends Mapping{
 		this.hotelSupplyId = hotelSupplyId;
 	}
 
+	public Long getHotelId() {
+		return hotelId;
+	}
+
+	public void setHotelId(Long hotelId) {
+		this.hotelId = hotelId;
+	}
+
+	public boolean isClose() {
+		return close;
+	}
+
+	public void setClose(boolean close) {
+		this.close = close;
+	}
+	
 }

@@ -1,0 +1,22 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" xmlns:tem="http://tempuri.org/"
+	xmlns:nex="http://schemas.datacontract.org/2004/07/NextPms.PublicService.Model.Order">
+	<soap:Header xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/07/secext"
+		xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility">
+		<wsse:Security>
+			<wsse:UsernameToken>
+				<wsse:Username>web</wsse:Username>
+				<wsse:Password>pass</wsse:Password>
+			</wsse:UsernameToken>
+		</wsse:Security>
+	</soap:Header>
+	<soap:Body>
+		<tem:CancelOrder>
+			<tem:orderCancelRequest>
+				<nex:HotelId>1</nex:HotelId>
+				<nex:OrderId>1</nex:OrderId>
+				<nex:Reason>wu</nex:Reason>
+			</tem:orderCancelRequest>
+		</tem:CancelOrder>
+	</soap:Body>
+</soap:Envelope>

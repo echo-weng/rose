@@ -12,6 +12,11 @@ import javax.persistence.MappedSuperclass;
 public abstract class Mapping extends DomainObject {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * 本系统code
 	 */
 	@Column(name = "code", nullable = false)

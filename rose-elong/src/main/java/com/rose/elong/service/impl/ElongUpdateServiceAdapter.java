@@ -31,7 +31,11 @@ public class ElongUpdateServiceAdapter implements UpdateInventoryService, Update
 	private ElongWebClient elongWebClient;
 
 	public void updateRate(RateUpdate rateUpdate, Contract contract) {
+		//更新之前检查loginToken
+		beforeUpdate();
+		
 		UpdateRoomRateRequest rateRequest = elongConvertor.convertToRateUpdate(rateUpdate);
+		
 		ElongResponse response = elongWebClient.updateRate(rateRequest);
 		// 如果登陆验证失效 则重新登陆
 		if (elongWebClient.needSend(response)) {
@@ -49,6 +53,9 @@ public class ElongUpdateServiceAdapter implements UpdateInventoryService, Update
 	}
 
 	public void updateInventory(InventoryUpdate inventoryUpdate, Contract contract) {
+		//更新之前检查loginToken
+		beforeUpdate();
+				
 		UpdateRoomTypeAmountRequest inventoryRequest = elongConvertor
 				.convertToUpdateRoomTypeAmountUpdate(inventoryUpdate);
 		ElongResponse response = elongWebClient.updateInventory(inventoryRequest);
@@ -64,10 +71,17 @@ public class ElongUpdateServiceAdapter implements UpdateInventoryService, Update
 
 		UpdateRoomTypeStatusRequest inventoryStatusRequest = elongConvertor
 				.convertToUpdateRoomTypeStatusUpdate(inventoryUpdate);
-		
+
 		elongWebClient.updateInventoryStatus(inventoryStatusRequest);
 	}
-
+	
+	private void beforeUpdate(){
+		if(elongWebClient.loginTokenIsEmpty()){
+			// 重新登陆
+			elongWebClient.loginFetchToken();
+		}
+	}
+	
 	public void setElongConvertor(ElongConvertor elongConvertor) {
 		this.elongConvertor = elongConvertor;
 	}

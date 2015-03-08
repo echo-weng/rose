@@ -1,0 +1,122 @@
+<S:Envelope xmlns:S="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd"
+	xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:wsc="http://schemas.xmlsoap.org/ws/2005/02/sc" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+	xmlns:exc14n="http://www.w3.org/2001/10/xml-exc-c14n#">
+	<S:Header>
+		<To xmlns="http://www.w3.org/2005/08/addressing" wsu:Id="_5008">http://pms.beyondh.com:7998/Service/Order/HotelService.svc/WS</To>
+		<Action xmlns="http://www.w3.org/2005/08/addressing" xmlns:S="http://www.w3.org/2003/05/soap-envelope"
+			S:mustUnderstand="true" wsu:Id="_5007">http://tempuri.org/IHotelService/GetRoomTypes</Action>
+		<ReplyTo xmlns="http://www.w3.org/2005/08/addressing" wsu:Id="_5006">
+			<Address>http://www.w3.org/2005/08/addressing/anonymous</Address>
+		</ReplyTo>
+		<FaultTo xmlns="http://www.w3.org/2005/08/addressing" wsu:Id="_5004">
+			<Address>http://www.w3.org/2005/08/addressing/anonymous</Address>
+		</FaultTo>
+		<MessageID xmlns="http://www.w3.org/2005/08/addressing"
+			wsu:Id="_5005">uuid:7a852741-52cd-4d83-afbb-d104a5d693ca</MessageID>
+		<wsse:Security S:mustUnderstand="true">
+			<wsu:Timestamp
+				xmlns:ns19="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns18="http://schemas.xmlsoap.org/soap/envelope/" wsu:Id="_5">
+				<wsu:Created>2015-03-03T17:06:46Z</wsu:Created>
+				<wsu:Expires>2015-03-03T17:11:46Z</wsu:Expires>
+			</wsu:Timestamp>
+			<xenc:EncryptedKey
+				xmlns:ns19="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns18="http://schemas.xmlsoap.org/soap/envelope/" Id="_5002">
+				<xenc:EncryptionMethod
+					Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+				<ds:KeyInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xsi:type="KeyInfoType">
+					<wsse:SecurityTokenReference>
+						<wsse:KeyIdentifier
+							ValueType="http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#ThumbprintSHA1"
+							EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">YIToTGtSWE+zUFC/y7AsDmOc7Kw=</wsse:KeyIdentifier>
+					</wsse:SecurityTokenReference>
+				</ds:KeyInfo>
+				<xenc:CipherData>
+					<xenc:CipherValue>cVOoMPRnUvB9HMuUZ9z4qNFRBW/vDAmQzIh5Q+1RGa5LBtLsYRNkFatYvOcqSaZ6+ngYp5K3g1T8vmBSsiAU05cDukc0pDaZU9JY58T/n/ZePS8fXFT3F6NbIpvlaX3Ck5VdTxm3Qijv0AYn/VIs9j2m5dsATPVdPBeoU1oLEYpo6siYByXlulg3OFFCTh/cAs6B9iakF+6TkdDLyQOCGayW2ActvLbUoWu8PRPHT8i0blfdCb3mn8kFkB4yTyGckLn30q2434g0HstanxpBjOS2pSHwX76HRaNKkD9SqTkE/ap01Aw18u6ZF+wVCHunPYKLq/6dMfuxiDeRxxOyaQ==</xenc:CipherValue>
+				</xenc:CipherData>
+			</xenc:EncryptedKey>
+			<wsc:DerivedKeyToken
+				xmlns:ns19="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns18="http://schemas.xmlsoap.org/soap/envelope/" wsu:Id="_3">
+				<wsse:SecurityTokenReference>
+					<wsse:Reference URI="#_5002"
+						ValueType="http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#EncryptedKey" />
+				</wsse:SecurityTokenReference>
+				<wsc:Offset>0</wsc:Offset>
+				<wsc:Length>16</wsc:Length>
+				<wsc:Nonce>1E/qEK6Uyj7/LOv1TqQvMynQ</wsc:Nonce>
+			</wsc:DerivedKeyToken>
+			<wsc:DerivedKeyToken
+				xmlns:ns19="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns18="http://schemas.xmlsoap.org/soap/envelope/" wsu:Id="_4">
+				<wsse:SecurityTokenReference>
+					<wsse:Reference URI="#_5002"
+						ValueType="http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#EncryptedKey" />
+				</wsse:SecurityTokenReference>
+				<wsc:Offset>0</wsc:Offset>
+				<wsc:Length>16</wsc:Length>
+				<wsc:Nonce>UrirgSRzkYNSRKx6p7gjaDKH</wsc:Nonce>
+			</wsc:DerivedKeyToken>
+			<xenc:ReferenceList
+				xmlns:ns19="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns18="http://schemas.xmlsoap.org/soap/envelope/">
+				<xenc:DataReference URI="#_5011" />
+				<xenc:DataReference URI="#_5012" />
+				<xenc:DataReference URI="#_5013" />
+			</xenc:ReferenceList>
+			<xenc:EncryptedData
+				xmlns:ns19="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns18="http://schemas.xmlsoap.org/soap/envelope/" Id="_5013"
+				Type="http://www.w3.org/2001/04/xmlenc#Element">
+				<xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+				<ds:KeyInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xsi:type="KeyInfoType">
+					<wsse:SecurityTokenReference>
+						<wsse:Reference URI="#_4" />
+					</wsse:SecurityTokenReference>
+				</ds:KeyInfo>
+				<xenc:CipherData>
+					<xenc:CipherValue>IVmhjAUk3d+9e8J6Vf95t+OvySSrX4QLQBKfK7rQuKMmN4zjwKSISrbhIPJG+IDlc8eRXQ4rULTCv5AjA07ze99PNwGmoLD8U6UKmmexVLlC+d0Sl55mpGDlWCZr0Ip7/9fA4jFq3H0O83BuVH+LdA0IzYCrp2CRRz8ijwcr+2jTfhg11AmNokadaNZ26OnANWIU/NTtVtVxJaOKMnEAeP29CNjOBZAle+G2uv7ZNjntpK7RdBGRUVDPHj0Kp5GJgL3r1/WXmuibzFMvZXHNHbeaAXtI6j99QAuLUbhCCRP2G/UsrsAYNngdO/wslWEmR3CICLhmF/SQgyrA17wOQZXRRMl4sWPHp7w8NVhR+PKIafLmGrUNon9tI9iyndnm2vRD6rxekzklEhIcCzqTK9HduGBOgDW7CigAcUWi/NaYdB0qg3pX5SV5PejENfXPFgmaXE5X79MRvASpgGukMbO4fmBncBZKrGPBtIR7GGlWj0wuvSk0phuw9QEJ113imSLgE9c+QGiREErUeni8Kl+tp1HLE5e8NnU6NE4FRw5HNXCzgkDfX+LvUa5EshYyqgfOLeFCbHq58qeuh6Wz4KaFmOis84kkuUnvvpinp8MdHUgFVD3LmjYNVIRl+I7y</xenc:CipherValue>
+				</xenc:CipherData>
+			</xenc:EncryptedData>
+			<xenc:EncryptedData
+				xmlns:ns19="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns18="http://schemas.xmlsoap.org/soap/envelope/" Id="_5012"
+				Type="http://www.w3.org/2001/04/xmlenc#Element">
+				<xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+				<ds:KeyInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xsi:type="KeyInfoType">
+					<wsse:SecurityTokenReference>
+						<wsse:Reference URI="#_4" />
+					</wsse:SecurityTokenReference>
+				</ds:KeyInfo>
+				<xenc:CipherData>
+					<xenc:CipherValue>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</xenc:CipherValue>
+				</xenc:CipherData>
+			</xenc:EncryptedData>
+		</wsse:Security>
+	</S:Header>
+	<S:Body wsu:Id="_5009">
+		<xenc:EncryptedData
+			xmlns:ns19="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+			xmlns:ns18="http://schemas.xmlsoap.org/soap/envelope/" Id="_5011"
+			Type="http://www.w3.org/2001/04/xmlenc#Content">
+			<xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+			<ds:KeyInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:type="KeyInfoType">
+				<wsse:SecurityTokenReference>
+					<wsse:Reference URI="#_4" />
+				</wsse:SecurityTokenReference>
+			</ds:KeyInfo>
+			<xenc:CipherData>
+				<xenc:CipherValue>wYrX0xJ3QwtHWr68LaOzZFdNaGG/gO6C99sLcjTJykPKe+hE3Jue4uV07bZf+RV+H37M9uKu+FbKsiospsz2aBhEBMv70H0g/LymZ8BXGCRmsmaG8svWej00CjROBfk6jxAFj/a176sMwJM8uBcRVD3WW6MrktIBpwqXwkPXTuF+jDkL+CEnh6AqKdadbf0KE4kcMnY9EuMtn91jVGdocJrqInE8DEBhykTsyegtXXu/xyrtyCmHHDaUBO0B6taB</xenc:CipherValue>
+			</xenc:CipherData>
+		</xenc:EncryptedData>
+	</S:Body>
+</S:Envelope>

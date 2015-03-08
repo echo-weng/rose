@@ -64,6 +64,8 @@ public class ElongConvertorImpl implements ElongConvertor{
 			item.setRateAmount(singleRateUpdate.getOccupancyRate().getCommonRate().getAmountAfterTax());
 			item.setRateCode(singleRateUpdate.getRatePlanCode());
 			item.setRoomTypeCode(singleRateUpdate.getRoomTypeCode());
+			
+			roomAmounts.add(item);
 		}
 		request.setRoomAmounts(roomAmounts);
 		return request;

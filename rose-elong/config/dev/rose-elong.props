@@ -1,0 +1,6 @@
+elong.username=elongtest #sec
+elong.password=elongtest #sec
+elong.server.url=http://directconnection/HotelAPI/V1.0/SouthBoundService.svc
+
+elong.reservation.username=elong #sec
+elong.reservation.password=elong123 #sec

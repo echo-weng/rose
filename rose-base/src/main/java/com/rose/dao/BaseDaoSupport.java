@@ -24,36 +24,36 @@ public class BaseDaoSupport<T> extends BaseDao implements CrudDao<T> {
 
 	@Override
 	public void delete(T t) {
-		getHibernateTemplate().delete(t);
+		getSession().delete(t);
 	}
 
 	@Override
 	public T getById(Long id) {
-		return (T) getHibernateTemplate().get(getEntityClass(), id);
+		return (T) getSession().get(getEntityClass(), id);
 	}
 
 	@Override
 	public T loadById(Long id) {
-		return (T) getHibernateTemplate().load(getEntityClass(), id);
+		return (T) getSession().load(getEntityClass(), id);
 	}
 
 	@Override
 	public void save(T t) {
-		getHibernateTemplate().save(t);
+		getSession().save(t);
 	}
 
 	@Override
 	public void saveOrUpdate(T t) {
-		getHibernateTemplate().saveOrUpdate(t);
+		getSession().saveOrUpdate(t);
 	}
 
 	@Override
 	public void update(T t) {
-		getHibernateTemplate().update(t);
+		getSession().update(t);
 	}
 
 	public Class<T> getEntityClass() {
 		return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
-
+	
 }

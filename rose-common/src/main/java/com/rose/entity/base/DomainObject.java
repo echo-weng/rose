@@ -1,5 +1,6 @@
 package com.rose.entity.base;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,7 +15,12 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @author echo
  */
 @MappedSuperclass
-public abstract class DomainObject {
+public abstract class DomainObject implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue

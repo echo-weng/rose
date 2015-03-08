@@ -15,10 +15,25 @@
 	<url>http://maven.apache.org</url>
 	
 	<dependencies>
+		<dependency>
+			<groupId>com.rose</groupId>
+			<artifactId>rose-mps</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.rose</groupId>
+			<artifactId>rose-mps-update</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.rose</groupId>
+			<artifactId>rose-elong</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
-		<finalName>ROOT</finalName>
+		<finalName>rose</finalName>
 	</build>
 	
 </project>

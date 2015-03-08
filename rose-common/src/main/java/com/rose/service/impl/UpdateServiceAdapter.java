@@ -1,5 +1,6 @@
 package com.rose.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rose.domain.Contract;
@@ -15,6 +16,8 @@ import com.rose.service.UpdateServiceFactory;
  */
 @Service("updateServiceAdapter")
 public class UpdateServiceAdapter implements UpdateInventoryService, UpdateRateService{
+	
+	@Autowired
 	private UpdateServiceFactory updateServiceFactory;
 	
 	public void updateRate(RateUpdate rateUpdate, Contract contract) {
@@ -33,4 +36,8 @@ public class UpdateServiceAdapter implements UpdateInventoryService, UpdateRateS
 		updateInventoryService.updateInventory(inventoryUpdate, contract);
 	}
 
+	public void setUpdateServiceFactory(UpdateServiceFactory updateServiceFactory) {
+		this.updateServiceFactory = updateServiceFactory;
+	}
+	
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UpdateRateRequest Token="2498578445465412" HotelCode="TEST" OwerId="1">
+	<SingleRateUpdates>
+		<SingleRateUpdate RoomTypeCode="Deluxe">
+			<DateSpan Start="2015-03-10" End="2015-03-10" />
+			<OccupancyRate CurrencyCode="CNY">
+				<Rates>
+					<Rate AmountBeforeTax="100" AmountAfterTax="100" GuestCount="2" />
+				</Rates>
+			</OccupancyRate>
+		</SingleRateUpdate>
+	</SingleRateUpdates>
+</UpdateRateRequest>

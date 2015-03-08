@@ -1,0 +1,18 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	<s:Body>
+		<UpdateRoomRateResponse xmlns="http://tempuri.org/">
+			<UpdateRoomRateResult
+				xmlns:a="http://schemas.datacontract.org/2004/07/com.eLong.Hotel.SouthBoundService.Model"
+				xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<a:ResponseHead>
+					<a:ErrorCode>14</a:ErrorCode>
+					<a:GUID i:nil="true" />
+					<a:ResultMessage>Logintoken is invalid.</a:ResultMessage>
+					<a:ResultStatus>2</a:ResultStatus>
+					<a:TimeStamp>2015-03-08T20:18:18.515625+08:00</a:TimeStamp>
+					<a:Version>1</a:Version>
+				</a:ResponseHead>
+			</UpdateRoomRateResult>
+		</UpdateRoomRateResponse>
+	</s:Body>
+</s:Envelope>

@@ -24,6 +24,11 @@ public class ReservationMapping extends Mapping{
 	@Column(name = "hotel_mapping_id")
 	private Long hotelMappingId;
 	
+	/**
+	 * pms订单id
+	 */
+	private Long orderId;
+	
 	//状态
 	@Column
 	private String status;
@@ -65,6 +70,14 @@ public class ReservationMapping extends Mapping{
 
 	public void setSuccess(boolean success) {
 		this.success = success;
+	}
+
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
 	}
 	
 }

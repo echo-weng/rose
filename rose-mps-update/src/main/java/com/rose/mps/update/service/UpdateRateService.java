@@ -48,8 +48,8 @@ public class UpdateRateService implements RequestHandlerService {
 		if(isValidCredentials(request)){
 			throw new RequestHandlerException("001", "用户名密码错误");
 		}
-		RateUpdate RateUpdate = convertToRateUpdate(request);
-		RateUpdateWrap RateUpdateWrap = new RateUpdateWrap(RateUpdate,
+		RateUpdate rateUpdate = convertToRateUpdate(request);
+		RateUpdateWrap RateUpdateWrap = new RateUpdateWrap(rateUpdate,
 				queryContracts(request.getHotelCode()));
 		supplierUpdateService.updateRate(RateUpdateWrap);
 		return new RateUpdateResponse();
@@ -65,6 +65,8 @@ public class UpdateRateService implements RequestHandlerService {
 			Contract contract = new Contract();
 			contract.setOtaCode(hotelMapping.getOtaCode());
 			contract.setSupplyCode(hotelSupply.getSupplyCode());
+			
+			contracts.add(contract);
 		}
 		return contracts;
 	}
@@ -87,6 +89,8 @@ public class UpdateRateService implements RequestHandlerService {
 			_singleRateUpdate.setDateSpan(new DateSpan(singleRateUpdate.getDateSpan().getStartTime(),
 					singleRateUpdate.getDateSpan().getEndTime()));
 			_singleRateUpdate.setRoomTypeCode(singleRateUpdate.getRoomTypeCode());
+			
+			singleRateUpdates.add(_singleRateUpdate);
 		}
 		return new RateUpdate(hotelCode, singleRateUpdates);
 	}
@@ -94,12 +98,18 @@ public class UpdateRateService implements RequestHandlerService {
 	private OccupancyRate convertToOccupancyRate(com.rose.mps.update.domain.OccupancyRate occupancyRate){
 		OccupancyRate _occupancyRate = new OccupancyRate();
 		_occupancyRate.setCurrencyCode(occupancyRate.getCurrencyCode());
+		
+		List<Rate> rates = new ArrayList<Rate>();
 		for (com.rose.mps.update.domain.Rate rate : occupancyRate.getRates()) {
 			Rate _rate = new Rate();
 			_rate.setAmountAfterTax(rate.getAmountAfterTax());
 			_rate.setAmountBeforeTax(rate.getAmountBeforeTax());
 			_rate.setGuestCount(rate.getGuestCount());
+			
+			rates.add(_rate);
 		}
+		_occupancyRate.setRates(rates);
+		
 		return _occupancyRate;
 	}
 

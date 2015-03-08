@@ -23,6 +23,14 @@ public interface EntityService {
 	ReservationMapping getReservationMappingByOtaCooperatorCode(String otaCooperatorCode);
 	
 	/**
+	 * 通过code 获取订单mapping
+	 * 
+	 * @param code
+	 * @return
+	 */
+	ReservationMapping getReservationMappingByCode(String code);
+	
+	/**
 	 * 保存或者更新订单
 	 * @param reservationMapping
 	 */

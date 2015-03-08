@@ -58,6 +58,11 @@ public class EntityServiceImpl implements EntityService{
 	}
 	
 	@Override
+	public ReservationMapping getReservationMappingByCode(String code) {
+		return null;
+	}
+
+	@Override
 	public Map<Long, HotelSupply> getAllHotelSupplyMap(){
 		List<HotelSupply> hotelSupplies = hotelSupplyDao.queryAll();
 		Map<Long, HotelSupply> map = new HashMap<Long, HotelSupply>();

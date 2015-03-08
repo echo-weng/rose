@@ -7,12 +7,16 @@ import org.hibernate.HibernateException;
 import org.hibernate.NonUniqueResultException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateCallback;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 @SuppressWarnings({"unchecked", "rawtypes"})
-public abstract class BaseDao extends HibernateDaoSupport {
+public abstract class BaseDao {
+	
+	@Autowired
+	protected SessionFactory sessionFactory;
 
 	public int executeUpdate(final DetachedQuery detachedQuery) {
 		return (Integer) execute(new HibernateCallback() {
@@ -49,11 +53,24 @@ public abstract class BaseDao extends HibernateDaoSupport {
 	}
 
 	public List findByCriteria(DetachedCriteria criteria) {
-		return getHibernateTemplate().findByCriteria(criteria);
+		return criteria.getExecutableCriteria(getSession()).list();
 	}
 
 	public Object execute(HibernateCallback action) {
-		return getHibernateTemplate().execute(action);
+		try {
+			return action.doInHibernate(getSession());
+		} catch (HibernateException e) {
+		} catch (SQLException e) {
+		}
+		return null;
+	}
+	
+	protected Session getSession(){
+		try {
+			return sessionFactory.getCurrentSession();
+		} catch (Throwable e) {
+			return sessionFactory.openSession();
+		}
 	}
 
 	public static <T> T uniqueElement(List<T> list) throws NonUniqueResultException {

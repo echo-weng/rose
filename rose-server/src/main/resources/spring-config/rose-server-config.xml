@@ -6,16 +6,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	
 	<bean class="com.rose.utils.PropertyPlaceholderConfigurer">
-		<property name="fileName" value="rose-mps.props"/>
-	</bean>
-	
-	<bean id="updateInventoryService" class="com.rose.mps.service.UpdateInventoryService">
-		<property name="password" value="${mps.request.password}"/>
-		<property name="userName" value="${mps.request.username}"/>
-	</bean>
-	
-	<bean id="updateRateService" class="com.rose.mps.service.UpdateRateService">
-		<property name="password" value="${mps.request.password}"/>
-		<property name="userName" value="${mps.request.username}"/>
+		<property name="fileDir" value="rose"/>
 	</bean>
 </beans>

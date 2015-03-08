@@ -40,24 +40,24 @@
 
 package com.sun.xml.ws.security.opt.impl.incoming.processor;
 
-import com.sun.xml.ws.security.opt.crypto.dsig.internal.DigesterOutputStream;
-import com.sun.xml.ws.security.opt.impl.util.StreamUtil;
-import com.sun.xml.wss.impl.MessageConstants;
-import com.sun.xml.wss.impl.c14n.StAXEXC14nCanonicalizerImpl;
-import com.sun.xml.wss.logging.LogDomainConstants;
 import java.io.ByteArrayOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.xml.crypto.dsig.Reference;
 import javax.xml.crypto.dsig.XMLSignatureException;
 import javax.xml.stream.StreamFilter;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-
 import javax.xml.ws.WebServiceException;
+
+import com.sun.xml.ws.security.opt.crypto.dsig.internal.DigesterOutputStream;
+import com.sun.xml.ws.security.opt.impl.util.StreamUtil;
+import com.sun.xml.wss.impl.c14n.StAXEXC14nCanonicalizerImpl;
+import com.sun.xml.wss.logging.LogDomainConstants;
 import com.sun.xml.wss.logging.impl.opt.signature.LogStringsMessages;
 /**
  *

@@ -2,8 +2,6 @@ package com.rose.service.impl;
 
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-
 import com.rose.service.UpdateInventoryService;
 import com.rose.service.UpdateRateService;
 import com.rose.service.UpdateServiceFactory;
@@ -13,7 +11,6 @@ import com.rose.service.UpdateServiceFactory;
  *
  * @author echo
  */
-@Service("updateServiceFactory")
 public class UpdateServiceFactoryImpl implements UpdateServiceFactory{
 	
 	private Map<String, UpdateInventoryService> updateInventoryServiceMap;
@@ -26,6 +23,14 @@ public class UpdateServiceFactoryImpl implements UpdateServiceFactory{
 	
 	public UpdateRateService getUpdateRateService(String otaCode){
 		return updateRateServiceMap.get(otaCode);
+	}
+	
+	public void setUpdateInventoryServiceMap(Map<String, UpdateInventoryService> updateInventoryServiceMap) {
+		this.updateInventoryServiceMap = updateInventoryServiceMap;
+	}
+	
+	public void setUpdateRateServiceMap(Map<String, UpdateRateService> updateRateServiceMap) {
+		this.updateRateServiceMap = updateRateServiceMap;
 	}
 	
 }

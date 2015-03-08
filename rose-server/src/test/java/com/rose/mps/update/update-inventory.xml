@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UpdateInventoryRequest Token="2498578445465412"
+	HotelCode="9988789" OwerId="1">
+	<SingleInventoryUpdates>
+		<SingleInventoryUpdate RoomTypeCode="Standard"
+			Count="2">
+			<DateSpan Start="2015-03-01" End="2015-03-01" />
+		</SingleInventoryUpdate>
+	</SingleInventoryUpdates>
+</UpdateInventoryRequest>

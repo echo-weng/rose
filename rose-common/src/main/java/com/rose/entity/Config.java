@@ -2,7 +2,6 @@ package com.rose.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.rose.entity.base.DomainObject;
@@ -11,7 +10,12 @@ import com.rose.entity.base.DomainObject;
 @Table(name = "t_config")
 public class Config extends DomainObject{
 	
-	@Id
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Column(nullable = false, unique = true)
 	private String name;
 	
 	@Column(name = "value")

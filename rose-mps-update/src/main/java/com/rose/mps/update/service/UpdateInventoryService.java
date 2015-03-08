@@ -14,6 +14,7 @@ import com.rose.domain.SingleInventoryUpdate;
 import com.rose.entity.HotelMapping;
 import com.rose.entity.HotelSupply;
 import com.rose.exception.RequestHandlerException;
+import com.rose.mps.update.ErrorCodes;
 import com.rose.mps.update.domain.InventoryUpdateRequest;
 import com.rose.mps.update.domain.InventoryUpdateResponse;
 import com.rose.service.EntityService;
@@ -44,7 +45,7 @@ public class UpdateInventoryService implements RequestHandlerService {
 	public RoseResponse handlerRequest(RoseRequest req) throws RequestHandlerException {
 		InventoryUpdateRequest request = (InventoryUpdateRequest) req;
 		if (isValidCredentials(request)) {
-			throw new RequestHandlerException("001", "用户名密码错误");
+			throw new RequestHandlerException(ErrorCodes.FAILED_INVALID.Code, ErrorCodes.FAILED_INVALID.MSG);
 		}
 		InventoryUpdate inventoryUpdate = convertToInventoryUpdate(request);
 		InventoryUpdateWrap inventoryUpdateWrap = new InventoryUpdateWrap(inventoryUpdate,
@@ -60,8 +61,11 @@ public class UpdateInventoryService implements RequestHandlerService {
 		return true;
 	}
 
-	private List<Contract> queryContracts(String hotelCode) {
+	private List<Contract> queryContracts(String hotelCode) throws RequestHandlerException {
 		List<HotelMapping> hotelMappings = entityService.queryHotelMappingsByCode(hotelCode);
+		if(hotelMappings.isEmpty()){
+			throw new RequestHandlerException(ErrorCodes.NO_FUND_HOTEL.Code, ErrorCodes.NO_FUND_HOTEL.MSG);
+		}
 		Map<Long, HotelSupply> hotelSupplyMap = entityService.getAllHotelSupplyMap();
 
 		List<Contract> contracts = new ArrayList<Contract>();
@@ -70,6 +74,8 @@ public class UpdateInventoryService implements RequestHandlerService {
 			Contract contract = new Contract();
 			contract.setOtaCode(hotelMapping.getOtaCode());
 			contract.setSupplyCode(hotelSupply.getSupplyCode());
+			
+			contracts.add(contract);
 		}
 		return contracts;
 	}
@@ -84,6 +90,8 @@ public class UpdateInventoryService implements RequestHandlerService {
 			_singleInventoryUpdate.setDateSpan(new DateSpan(singleInventoryUpdate.getDateSpan().getStartTime(),
 					singleInventoryUpdate.getDateSpan().getEndTime()));
 			_singleInventoryUpdate.setRoomTypeCode(singleInventoryUpdate.getRoomTypeCode());
+			
+			singleInventoryUpdates.add(_singleInventoryUpdate);
 		}
 		return new InventoryUpdate(hotelCode, singleInventoryUpdates);
 	}

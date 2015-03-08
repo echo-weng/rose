@@ -18,6 +18,13 @@ public interface ElongWebClient {
 	 * 获取token
 	 */
 	void loginFetchToken();
+	
+	/**
+	 * 判断loginToken是否为空
+	 * 
+	 * @return
+	 */
+	boolean loginTokenIsEmpty();
 
 	/**
 	 * 更新价格

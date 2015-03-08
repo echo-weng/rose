@@ -48,6 +48,8 @@ public class CommitReservationService extends com.rose.elong.service.impl.Reserv
 		ReservationService reservationService = reservationServiceFactory.selReservationService(contract);
 		
 		ReservationMapping reservationMapping = new ReservationMapping();
+		reservationMapping.setHotelMappingId(hotelMapping.getId());
+		reservationMapping.setOtaCooperatorCode(reservation.getChannelReservationId());
 		try {
 			ReservationConfirmation reservationConfirmation = reservationService.bookReservation(reservation, contract, ActionType.COMMIT);
 			reservationMapping.setCode(reservationConfirmation.getReservationId());
@@ -55,9 +57,9 @@ public class CommitReservationService extends com.rose.elong.service.impl.Reserv
 			reservationMapping.setSuccess(true);
 		} catch (Exception e) {
 			LOG.error("Commit Fail", e);
+			reservationMapping.setCode(reservation.getChannelReservationId());
 			reservationMapping.setStatus(ReservationMapping.FAILED_STATUS);
 			reservationMapping.setSuccess(false);
-			//TODO
 		} finally {
 			entityService.saveOrUpdateReservationMapping(reservationMapping);
 		}
